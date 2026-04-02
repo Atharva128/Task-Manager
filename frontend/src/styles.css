@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: #f4f6f9;
   margin: 0;
   padding: 20px;
@@ -7,22 +7,19 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
 }
 
-/* Layout */
 .container {
   display: flex;
   gap: 20px;
 }
 
-/* Form */
+/* FORM */
 .form-box {
   width: 30%;
-  background: #fff;
+  background: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .form-box input,
@@ -31,55 +28,74 @@ h1 {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
 
-.form-box button {
-  width: 100%;
-  padding: 10px;
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.row {
+  display: flex;
+  gap: 10px;
 }
 
-/* Board */
+/* BOARD */
 .task-board {
   display: flex;
   gap: 20px;
   width: 70%;
 }
 
-/* Columns */
 .column {
   flex: 1;
-  background: #fff;
+  background: #f1f3f5;
   padding: 10px;
   border-radius: 10px;
-  min-height: 300px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-/* Cards */
+.pending { background: #f5e6b3; }
+.progress { background: #cfe2ff; }
+.completed { background: #d1e7dd; }
+
+/* CARD */
 .card {
-  background: #fafafa;
+  background: white;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 10px;
-  border-left: 5px solid #007bff;
+  border-left: 5px solid;
 }
 
-.card h4 {
-  margin: 0;
+.card.high { border-color: red; }
+.card.medium { border-color: orange; }
+.card.low { border-color: green; }
+
+/* BADGE */
+.badge {
+  margin-left: 8px;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 5px;
 }
 
-.card button {
+.badge.high { background: #f8d7da; }
+.badge.medium { background: #fff3cd; }
+.badge.low { background: #d1e7dd; }
+
+/* BUTTONS */
+.actions {
   margin-top: 5px;
+}
+
+.btn {
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background: blue;
+  color: white;
+}
+
+.btn-delete {
   background: red;
   color: white;
-  border: none;
-  padding: 5px;
-  border-radius: 4px;
+  margin-left: 5px;
 }

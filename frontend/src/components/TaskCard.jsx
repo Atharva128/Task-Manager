@@ -1,11 +1,32 @@
-export default function TaskCard({ task, onDelete }) {
+export default function TaskCard({ task, onDelete, onEdit }) {
+  const priorityClass = task.priority.toLowerCase();
+
   return (
-    <div className="card">
-      <h4>{task.title}</h4>
+    <div className={`card ${priorityClass}`}>
+      <h4>
+        {task.title}
+        <span className={`badge ${priorityClass}`}>
+          {task.priority.toUpperCase()}
+        </span>
+      </h4>
+
       <p>{task.description}</p>
-      <small><b>{task.priority}</b></small>
-      <br />
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+
+      <div className="actions">
+        <button
+          className="btn btn-edit"
+          onClick={() => onEdit && onEdit(task)}
+        >
+          Edit
+        </button>
+
+        <button
+          className="btn btn-delete"
+          onClick={() => onDelete && onDelete(task.id)}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
