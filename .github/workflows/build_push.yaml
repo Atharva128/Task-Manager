@@ -19,5 +19,5 @@ jobs:
     - name: Push to Registry
       run: |
        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-       docker push task-manager-frontend:latest
-       docker push task-manager-backend:latest
+       docker push atharva12801/task-manager-frontend:latest
+       docker push atharva12801/task-manager-backend:latest
