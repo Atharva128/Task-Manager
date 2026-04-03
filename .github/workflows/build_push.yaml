@@ -1,0 +1,23 @@
+name: Build and Publish to registry
+
+on:
+    [workflow_dispatch]
+
+jobs:
+
+  build:
+
+    runs-on: ub
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: |
+        docker build ./frontend --file Dockerfile --tag task-manager-frontend:latest
+        docker build ./backend --file Dockerfile --tag task-manager-backend:latest
+
+    - name: Push to Registry
+      run: |
+       docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+       docker push task-manager-frontend:latest
+       docker push task-manager-backend:latest
