@@ -15,6 +15,7 @@ jobs:
       run: |
         docker build ./frontend -t task-manager-frontend:latest
         docker build ./backend -t task-manager-backend:latest
+        docker images
 
     - name: Push to Registry
       run: |
